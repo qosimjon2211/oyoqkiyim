@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-ink: #111111;
+  --color-paper: #F6F4F0;
+  --color-paper-dark: #E7E3DC;
+  --color-accent-orange: #FF5A36;
+  --color-muted-gray: #8B8B8B;
+
+  /* Animatsiyalar */
+  --animate-fade-in: fade-in 0.2s ease-out both;
+  --animate-toast-in: toast-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-toast-out: toast-out 0.24s ease-in both;
+  --animate-sheet-up: sheet-up 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-modal-in: modal-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop: pop 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes toast-in {
+    from { opacity: 0; transform: translateY(14px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes toast-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(-8px) scale(0.97); }
+  }
+  @keyframes sheet-up {
+    from { opacity: 0; transform: translateY(100%); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes modal-in {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes pop {
+    0% { transform: scale(0.4); }
+    60% { transform: scale(1.22); }
+    100% { transform: scale(1); }
+  }
+  @keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+  }
+}
+
+:root, [data-theme="brand"] {
+  color-scheme: light;
+  --color-primary: #111111;
+  --color-primary-content: #FFFFFF;
+  --color-secondary: #FF5A36;
+  --color-secondary-content: #FFFFFF;
+  --color-accent: #FF5A36;
+  --color-accent-content: #FFFFFF;
+  --color-neutral: #111111;
+  --color-neutral-content: #FFFFFF;
+  --color-base-100: #FFFFFF;
+  --color-base-200: #F6F4F0;
+  --color-base-300: #E7E3DC;
+  --color-base-content: #111111;
+  --color-info: #2563EB;
+  --color-info-content: #FFFFFF;
+  --color-success: #16A34A;
+  --color-success-content: #FFFFFF;
+  --color-warning: #D97706;
+  --color-warning-content: #FFFFFF;
+  --color-error: #DC2626;
+  --color-error-content: #FFFFFF;
+  --radius-selector: 0.875rem;
+  --radius-field: 0.875rem;
+  --radius-box: 1.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F6F4F0;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Gorizontal chip-qatorlarda scrollbar yashirish */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobil pastki navigatsiya ostidagi kontent yashirilmasligi uchun */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.h-safe {
+  height: calc(4rem + env(safe-area-inset-bottom));
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Klaviatura bilan boshqarishda aniq ko'rinadigan fokus halqasi */
+:focus-visible {
+  outline: 2px solid #FF5A36;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Rasm yuklanmasa chiqadigon jimgina fon */
+.img-fallback {
+  background-image: linear-gradient(135deg, #F6F4F0 0%, #E7E3DC 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
